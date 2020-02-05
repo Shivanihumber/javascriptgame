@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><style>
+*{
+  text-align:center;
+}
+
+h1 {
+  color: DarkSalmon 
+}
+h2 {
+  color: DarkSalmon 
+}
+p {
+  color: red
+}
+button {
+  color: Blue
+}
+body{
+ width: 50%;
+                border-bottom: 1px solid #000;
+                border-top: 1px solid #000;
+                border-left: 1px solid #000;
+                border-right: 1px solid #000;
+                border-color: blue;
+                background-color:Cyan;
+                
+  }
+	</style>
+
+<h1>Guess the Number!!!</h1>
+<h2>You have to guess a number between 1 to 50.<h2>
+	<script type="text/javascript">
+	function guessGame() {
+  //declare variables
+ 
+  var userInput = prompt("Guess a number!");
+  //random number
+  var randomNum = Math.floor((Math.random() * 50) + 1);
+  //maximam trial are three
+  var isCorrect = false
+  var turn = 3
+  
+  
+  while (isCorrect == false) {
+    document.getElementById('outputDiv').innerHTML += userInput + " ";
+    
+    if (turn == 1){
+      alert("GAME OVER. THE ANSWER WAS " + randomNum + ". Please reload the page to start the game again.")
+      return isCorrect == true;
+    }
+    
+    turn--;
+    
+    if (userInput < randomNum) {
+      userInput = prompt("Its too low! Guess again! You have "+turn+" turns.")
+    }
+    else if (userInput > randomNum){
+      userInput = prompt("Its too high! Guess again! You have "+turn+" turns.");
+  }
+    else if(userInput == randomNum){
+    alert('CORRECT! Please reload the page to start the game again.');
+    return isCorrect = true;
+    }
+  }
+}
+
+</script></head>
+<body>
+ 
+
+  
+  <br>
+
+  <button onclick="guessGame()"><h2>Start the Game!!<h2></button>
+
+    <p>You have guessed these numbers... </p><div id="outputDiv"></div>
+</body></html>
